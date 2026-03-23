@@ -1,0 +1,15 @@
+__pycache__/
+assets/external/
+.states
+.web
+*.db
+*.py[cod]
+mcp_servers/external/data
+docker/secure/
+.env
+.idea
+.python-version
+*.old
+.venv
+docker/mcp_filesystem_data/*.png
+docker/mcp_filesystem_data/*.ogg

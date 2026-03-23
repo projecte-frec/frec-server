@@ -1,0 +1,247 @@
+services:
+  # Main system (front-end + back-end)
+  frec_server:
+    image: frec_server
+    build:
+      context: ..
+      dockerfile: ./docker/frec_server/Dockerfile
+    volumes:
+      - type: bind
+        source: ..
+        target: /app
+    environment:
+      FREC_CONFIG_FILE: ${FREC_CONFIG_FILE:-frec-config.yml}
+      FREC_DEPLOY_MODE: ${FREC_DEPLOY_MODE:-development}
+    networks:
+      - frec_deploy_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  # Self hosted MCP servers
+
+  # mcp_template:
+  #   image: frec_server
+  #   build:
+  #     context: ..
+  #     dockerfile: ./docker/frec_server/Dockerfile
+  #   volumes:
+  #     - type: bind
+  #       source: ..
+  #       target: /app
+  #   command: ["python", "mcp_servers/template_mcp.py"]
+  #   networks:
+  #     - frec_deploy_network
+
+  mcp_gandolapp:
+    image: frec_server
+    build:
+      context: ..
+      dockerfile: ./docker/frec_server/Dockerfile
+    volumes:
+      - type: bind
+        source: ..
+        target: /app
+    command: ["python", "mcp_servers/gandolapp.py"]
+    networks:
+      - frec_deploy_network
+  
+  mcp_weather:
+    image: frec_server
+    build:
+      context: ..
+      dockerfile: ./docker/frec_server/Dockerfile
+    volumes:
+      - type: bind
+        source: ..
+        target: /app
+    command: ["python", "mcp_servers/weather.py"]
+    networks:
+      - frec_deploy_network
+
+  mcp_viquipedia:
+    image: frec_server
+    build:
+      context: ..
+      dockerfile: ./docker/frec_server/Dockerfile
+    volumes:
+      - type: bind
+        source: ..
+        target: /app
+    command: ["python", "mcp_servers/viquipedia_mcp.py"]
+    networks:
+      - frec_deploy_network
+
+  mcp_viccionari:
+    image: frec_server
+    build:
+      context: ..
+      dockerfile: ./docker/frec_server/Dockerfile
+    volumes:
+      - type: bind
+        source: ..
+        target: /app
+    command: ["python", "mcp_servers/viccionari.py"]
+    networks:
+      - frec_deploy_network
+
+  mcp_diec:
+    image: frec_server
+    build:
+      context: ..
+      dockerfile: ./docker/frec_server/Dockerfile
+    volumes:
+      - type: bind
+        source: ..
+        target: /app
+    command: ["python", "mcp_servers/diec/diec.py"]
+    networks:
+      - frec_deploy_network
+
+  mcp_platges:
+    image: frec_server
+    build:
+      context: ..
+      dockerfile: ./docker/frec_server/Dockerfile
+    volumes:
+      - type: bind
+        source: ..
+        target: /app
+    command: ["python", "mcp_servers/platges.py"]
+    networks:
+      - frec_deploy_network
+
+  mcp_amb_opendata:
+    image: frec_server
+    build:
+      context: ..
+      dockerfile: ./docker/frec_server/Dockerfile
+    volumes:
+      - type: bind
+        source: ..
+        target: /app
+    command: ["python", "mcp_servers/amb_noticies.py"]
+    networks:
+      - frec_deploy_network
+
+  mcp_jitsi:
+    image: frec_server
+    build:
+      context: ..
+      dockerfile: ./docker/frec_server/Dockerfile
+    volumes:
+      - type: bind
+        source: ..
+        target: /app
+    command: ["python", "mcp_servers/jitsi.py"]
+    networks:
+      - frec_deploy_network
+
+  mcp_google_translate:
+    image: frec_server
+    build:
+      context: ..
+      dockerfile: ./docker/frec_server/Dockerfile
+    volumes:
+      - type: bind
+        source: ..
+        target: /app
+    command: ["python", "mcp_servers/google_translate.py"]
+    networks:
+      - frec_deploy_network
+
+  mcp_google_workspace:
+    image: mcp_google_workspace
+    build:
+      context: ..
+      dockerfile: ./docker/mcp_google_workspace/Dockerfile
+    volumes:
+      - type: bind
+        source: ../mcp_servers/google/mcp-credentials
+        target: /root/.credentials
+    command: ["workspace-mcp", "--transport", "streamable-http"]
+    networks:
+      - frec_deploy_network
+
+  mcp_softcatala:
+    image: frec_server_java
+    build:
+      context: ..
+      dockerfile: ./docker/frec_server_java/Dockerfile
+    volumes:
+      - type: bind
+        source: ..
+        target: /app
+    command: ["python", "mcp_servers/softcatala/softcatala.py"]
+    networks:
+      - frec_deploy_network
+
+  mcp_apertium:
+    image: frec_server_apertium
+    build:
+      context: ..
+      dockerfile: ./docker/frec_server_apertium/Dockerfile
+    volumes:
+      - type: bind
+        source: ..
+        target: /app
+    command: ["python", "mcp_servers/apertium/apertium.py"]
+    networks:
+      - frec_deploy_network
+
+  # Agent servers
+  agent_server:
+    image: agent_server
+    build:
+      context: ..
+      dockerfile: ./docker/agent_server/Dockerfile
+    volumes:
+      - type: bind
+        source: ../agents
+        target: /app/agents
+        read_only: true
+    working_dir: /app/agents
+    command: ["adk", "api_server", "--host", "0.0.0.0", "--port", "8000"]
+    networks:
+      - frec_deploy_network
+
+  mcp_tmb:
+      image: frec_server
+      build:
+        context: ..
+        dockerfile: ./docker/frec_server/Dockerfile
+      volumes:
+        - type: bind
+          source: ..
+          target: /app
+      command: ["python", "mcp_servers/tmb/tmb_mcp.py"]
+      networks:
+        - frec_deploy_network
+
+  # MCP Servers
+  mcp_filesystem:
+    image: external_mcp_image
+    build:
+      context: ..
+      dockerfile: ./docker/external_mcp/Dockerfile
+    command:
+      [
+        "mcp-proxy",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8011",
+        "--",
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/app/data",
+      ]
+    volumes:
+      - type: bind
+        source: ./mcp_filesystem_data
+        target: /app/data
+    networks:
+      - frec_deploy_network
+
+networks:
+  frec_deploy_network:

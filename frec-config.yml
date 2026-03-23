@@ -1,0 +1,97 @@
+deploy_name: "Eines estandard de FREC"
+toolsets:
+  # Eines MCP
+  weather:
+    name: "Weather"
+    kind: mcp
+    endpoint: http://mcp_weather:8007/mcp
+
+  viquipedia:
+    name: "Viquipedia"
+    kind: mcp
+    endpoint: http://mcp_viquipedia:8011/mcp
+
+  viccionari:
+    name: "Viccionari"
+    kind: mcp
+    endpoint: http://mcp_viccionari:8033/mcp
+
+  google_translate:
+    name: "Google Translate"
+    kind: mcp
+    endpoint: http://mcp_google_translate:8012/mcp
+
+  files:
+    name: "Files"
+    kind: mcp
+    endpoint: http://mcp_filesystem:8011/mcp
+
+  platges:
+    name: "Platges"
+    kind: mcp
+    endpoint: http://mcp_platges:8007/mcp
+
+  amb_opendata:
+      name: "Notícies AMB"
+      kind: mcp
+      custom_instructions: |
+        Don't assume the year when asked for the latest news. Never assume the term either. Don't use the arguments if they are not provided by the user explicitly. Always give the user the news that the function is returning, even if the results seem unrelated.
+      endpoint: http://mcp_amb_opendata:8015/mcp
+
+  jitsi:
+    name: "Jitsi"
+    kind: mcp
+    custom_instructions: |
+      Only return the string returned by the function to the user, never modify it. Do not transform it into an URL. Do not add the current URL to the beginning of the string.
+    endpoint: http://mcp_jitsi:8017/mcp
+
+  softcatala:
+    name: "Softcatalà"
+    kind: mcp
+    endpoint: http://mcp_softcatala:8007/mcp
+
+  diec:
+    name: "Diccionari de la Llengua Catalana - IEC"
+    kind: mcp
+    custom_instructions: |
+      You will obtain the information for a word from a Catalan dictionary, which can be of 2 types:
+      the set of definitions for that word, or the set of grammatical categories. 
+      When asked for the meaning of a word:
+      - Display the result in a human-readable format, as if it were the piece from the dictionary.
+      - Reproduce only the text, examples, and related information available in the information you obtained from the dictionary.
+        Do not interpret, gloss, or add any further examples, even if you consider that the definition is not enough or it lacks examples. 
+        The lexicographers who compiled the dictionary are top experts and their work is perfect. Therefore, display ONLY the content you obtained without any further addition.
+      When asked for the grammatical categories of a word:
+      - Display the result nicely.
+      - If the answer involves several words, display one at a line.
+      If you obtain no result, tell the user that the word is not in the dictionary.
+      At the end, cite: "Font: Diccionari de la Llengua Catalana (IEC)"
+    endpoint: http://mcp_diec:8011/mcp
+
+  apertium:
+    name: "Apertium"
+    kind: mcp
+    endpoint: http://mcp_apertium:8007/mcp
+
+  serveis_tmb:
+      name: "Serveis TMB"
+      kind: mcp
+      custom_instructions: |
+        Do not ask for clarification, launch the tool directly.
+        Do not embellish, return clear instructions.
+        If there is only one itinerary, answer in Format_1:
+        "Per anar de Plaça Universitat a Jaume Primer:
+        Sortiu de Plaça Universitat, i camineu 300 metres.
+        Entreu al metro Universitat i aneu a la L1 amb sentit Fondo.
+        Baixeu a Urquinaona
+        Feu transbord a la L4 sentit La Pau.
+        Baixeu a Jaume I.
+        Ja heu arribat!"
+        If there is more than one itinerary return a list of all itineraries ordered by ascending generalized cost.
+        For each itinerary return the duration, the walking time and distance, and the number of transfers, and a warning if the route is considered too sloped. 
+        "Itinerari 1: 2h i 25 minuts de trajecte, dels quals 10 minuts seran a peu (uns 800 metres), amb un total de 5 transbords.
+        Itinerari 2: 59 minuts de trajecte, dels quals 40 minuts seran a peu (uns 2700 metres), sense transbords. La ruta és molt inclinada."
+        Ask the user which itinerary option they want, or if they want to see them all.
+        Present each requested response in Format_1.
+        
+      endpoint: http://mcp_tmb:8008/mcp

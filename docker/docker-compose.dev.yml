@@ -1,0 +1,6 @@
+services:
+  # Main system (front-end + back-end)
+  frec_server:
+    ports:
+      - 127.0.0.1:3000:3000/tcp
+    command: ["bash", "-c", "./dev.sh"]

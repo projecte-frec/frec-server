@@ -1,0 +1,10 @@
+deploy_name: "Exemples d'ús d'agents dins de FREC"
+toolsets:
+  time_in_city_agent:
+    name: "Hora a una ciutat"
+    kind: agent
+    # The name of the agent in the agent server, typically the folder name of
+    # the agent.
+    agent_key: "time_in_city"
+    custom_instructions: ""
+    url: http://agent_server:8000

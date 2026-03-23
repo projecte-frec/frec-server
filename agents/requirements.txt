@@ -1,0 +1,2 @@
+# ADK dependencies
+google-adk==1.26.0
