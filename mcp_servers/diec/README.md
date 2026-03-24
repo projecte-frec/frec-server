@@ -21,9 +21,9 @@ cd mcp_servers/diec
 python aux/conversor.py  path/to/input/DIEC_file.xml  path/to/output/DIEC_file.json
 ```
 
-L'script convertirà les dades a un fitxer JSON, que guardarà a `path/to/output/DIEC_file.json`. 
+L'script converteix les dades XML a JSON, que es guarda a `path/to/output/DIEC_file.json`. 
 
-A continuació, generarà dos fitxers més amb el contingut del DIEC2 indexat, que es guardaran a la carpeta `mcp_servers/diec/data`: 
+A continuació genera dos fitxers més amb el contingut del DIEC2 indexat, que es guarden a la carpeta `mcp_servers/diec/data`: 
 
 * `mcp_servers/diec/data/DIEC_file_indices.json`
 * `mcp_servers/diec/data/DIEC_file_content.json`
