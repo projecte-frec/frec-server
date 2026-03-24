@@ -7,7 +7,7 @@ Aquest servidor proporciona un servei d'accés al _Diccionari General de la Llen
 Les dades no són de lliure distribució, i per tant us cal obtenir-les posant-vos en contacte directament amb l'IEC. 
 
 ## Preprocessament de les dades
-Per al servidor actual es va fer servir la versió de dades `DIEC2_20260226.xml`, en format XML. Aquestes dades es van processant amb l'script de python `aux/conversor.py`.
+Per al servidor actual es va fer servir la versió de dades `DIEC2_20260226.xml`, en format XML. Aquestes dades es van processar amb l'script de python `aux/conversor.py`.
 
 ### Requeriments
 
