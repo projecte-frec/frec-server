@@ -167,7 +167,7 @@ Per a testejar les eines ràpidament, hem habilitat la comanda:
 ```bash
 python mcp_servers/template_mcp.py --test
 ```
-on només caldrà canviar el nom de l'script del servidor per testejar l'eina que estiguem desenvolupant i que haurem posat allà on a la plantilla hi diu `print(tool_function_name.fn("concept"))`   (*** REVISAR FRASE ***)
+on només caldrà canviar el nom de l'script del servidor per testejar l'eina que estiguem desenvolupant i que haurem posat allà on a la plantilla hi diu `print(tool_function_name.fn("concept"))`.
 
 <details><summary> Veure alternativa: </summary>
 
@@ -224,7 +224,7 @@ OLLAMA_INFERENCE_HOST="http://host.docker.internal:11434"
 
 ### Configuració de l'accés a Ollama via Docker
 
-És més senzill incorporar Ollama localment (*** MÉS SENZILL QUE QUÈ ***) si s'afegeix com un servei més a docker compose:
+És més senzill incorporar Ollama localment si s'afegeix com un servei més a docker compose:
 
 ```docker
 ollama:
