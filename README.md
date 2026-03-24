@@ -15,7 +15,7 @@ interactuar amb agents connectats a tot un ecosistema d'eines digitals: Des de s
 públics fins a les bases de dades de la teva organització.
 
 
-**\[TODO: Captura de pantalla aquí\]**
+![Captura de pantalla de FREC](img/captura_pantalla.png)
 
 **Característiques**
 - **Intel·ligència artificial, en Català**: FREC s'ha dissenyat posant especial èmfasi en
