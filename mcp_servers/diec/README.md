@@ -4,12 +4,12 @@
 Aquest servidor proporciona un servei d'accés al _Diccionari General de la Llengua Catalana_ (2a edició) de l'Institut d'Estudis Catalans (DIEC2).
 
 ## Obtenció de les dades
-Les dades no són de lliure distribució, i per tant us cal obtenir-les posant-vos en contacte directament de l'IEC. 
+Les dades no són de lliure distribució, i per tant us cal obtenir-les posant-vos en contacte directament amb l'IEC. 
 
 ## Preprocessament de les dades
-Per a la versió actual del servidor, es va fer servir la versió de dades `DIEC2_20260226.xml`, en format XML. Les dades a consumir pel servidor es van preparar processant aquest fitxer amb el codi de python `aux/conversor.py`.
+Per al servidor actual, es va fer servir la versió de dades `DIEC2_20260226.xml`, en format XML. Aquestes dades es van processant amb l'script de python `aux/conversor.py`.
 
-### Requeriments:
+### Requeriments
 
 * Versió de python: `3.13.0`
 * Llibreria `xmltodict==1.0.4`, que podeu instal·lar amb `pip install`
