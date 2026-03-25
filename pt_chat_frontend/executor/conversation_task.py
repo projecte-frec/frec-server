@@ -6,22 +6,22 @@ import uuid
 
 from pydantic import BaseModel
 
-from pt_chat_frontend import configuration
-from pt_chat_frontend.tool_calling import (
+from frec_server import configuration
+from frec_server.tool_calling import (
     agent_client,
     mcp_manager,
     rag_client,
     tool_prompting,
 )
-from pt_chat_frontend.executor.aio_utils import (
+from frec_server.executor.aio_utils import (
     BroadcastChannel,
     Subscription,
 )
-from pt_chat_frontend.llm import inference
-from pt_chat_frontend.llm.inference import LlmInference
-from pt_chat_frontend.persistence import db_queries, models
-from pt_chat_frontend.persistence.db import get_global_db
-from pt_chat_frontend.tool_calling.conversation_title_generator import (
+from frec_server.llm import inference
+from frec_server.llm.inference import LlmInference
+from frec_server.persistence import db_queries, models
+from frec_server.persistence.db import get_global_db
+from frec_server.tool_calling.conversation_title_generator import (
     try_generate_conversation_title,
 )
 

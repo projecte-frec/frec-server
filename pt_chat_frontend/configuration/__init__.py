@@ -8,7 +8,7 @@ import pydantic
 from pydantic import BaseModel
 import yaml
 
-from pt_chat_frontend.persistence import models
+from frec_server.persistence import models
 
 class PropmptConfig(BaseModel):
     """Various bits of the prompt can be customized by specifying these sections in the

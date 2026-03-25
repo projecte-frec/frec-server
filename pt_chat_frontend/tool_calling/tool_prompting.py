@@ -4,10 +4,10 @@ from typing import Any, Sequence
 
 from pydantic import BaseModel
 
-from pt_chat_frontend.configuration import get_config_file
-from pt_chat_frontend.llm.inference import ChatMessage
-from pt_chat_frontend.llm.prompt_templates import PromptTemplate
-from pt_chat_frontend.persistence import models
+from frec_server.configuration import get_config_file
+from frec_server.llm.inference import ChatMessage
+from frec_server.llm.prompt_templates import PromptTemplate
+from frec_server.persistence import models
 
 
 def try_parse_int(s: str, base=10, val=None) -> int | None:

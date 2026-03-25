@@ -3,7 +3,7 @@ from jinja2 import Template
 from pathlib import Path
 from typing import Literal, TypedDict
 
-from pt_chat_frontend.llm.inference import ChatMessage
+from frec_server.llm.inference import ChatMessage
 
 
 @dataclass

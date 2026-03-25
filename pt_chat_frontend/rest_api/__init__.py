@@ -3,10 +3,10 @@ from uuid import UUID
 from fastapi import FastAPI, Request, Response
 from pydantic import BaseModel
 
-from pt_chat_frontend.executor import conversation_task as ct, conversation_task_manager
-from pt_chat_frontend.pages.common import get_request_user_id, set_request_user
-from pt_chat_frontend.persistence.db import get_global_db
-from pt_chat_frontend.persistence import db_queries, models
+from frec_server.executor import conversation_task as ct, conversation_task_manager
+from frec_server.pages.common import get_request_user_id, set_request_user
+from frec_server.persistence.db import get_global_db
+from frec_server.persistence import db_queries, models
 
 db = get_global_db()
 ctaskmgr = conversation_task_manager.get_global_task_manager()

@@ -6,7 +6,7 @@ from sqlalchemy.engine import Engine
 from sqlmodel import SQLModel
 import sqlmodel
 
-from pt_chat_frontend.persistence import models
+from frec_server.persistence import models
 
 
 def drop_table(conn: sqlalchemy.Connection, table: str):

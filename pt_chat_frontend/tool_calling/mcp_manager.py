@@ -6,10 +6,10 @@ import mcp
 from pydantic import BaseModel
 import uuid
 
-from pt_chat_frontend.persistence import models
-from pt_chat_frontend.persistence.db import Database
-import pt_chat_frontend.persistence.db_queries as queries
-from pt_chat_frontend.tool_calling.tool_prompting import (
+from frec_server.persistence import models
+from frec_server.persistence.db import Database
+import frec_server.persistence.db_queries as queries
+from frec_server.tool_calling.tool_prompting import (
     tool_definition_prompt,
     toolset_prompt,
 )

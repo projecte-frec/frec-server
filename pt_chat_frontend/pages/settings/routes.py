@@ -12,11 +12,11 @@ from fastapi.responses import HTMLResponse
 import htpy
 from pydantic import BaseModel
 
-from pt_chat_frontend import configuration
-from pt_chat_frontend.pages.common import get_request_user, get_request_user_id
-from pt_chat_frontend.pages.settings import views
-from pt_chat_frontend.persistence import db_queries, db as database, models
-from pt_chat_frontend.tool_calling import agent_client, mcp_manager, rag_client
+from frec_server import configuration
+from frec_server.pages.common import get_request_user, get_request_user_id
+from frec_server.pages.settings import views
+from frec_server.persistence import db_queries, db as database, models
+from frec_server.tool_calling import agent_client, mcp_manager, rag_client
 
 
 db = database.get_global_db()

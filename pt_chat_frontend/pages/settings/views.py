@@ -7,9 +7,9 @@ import htpy
 from datastar_py import attribute_generator as data
 from platformdirs import user_desktop_dir
 
-from pt_chat_frontend import configuration
-from pt_chat_frontend.pages.common import page_with_navbar, page_wrapper
-from pt_chat_frontend.persistence import models
+from frec_server import configuration
+from frec_server.pages.common import page_with_navbar, page_wrapper
+from frec_server.persistence import models
 
 
 class Ids(StrEnum):

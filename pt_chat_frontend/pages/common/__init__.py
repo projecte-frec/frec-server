@@ -5,7 +5,7 @@ import htpy
 import fastapi
 import markdown
 import markdown.treeprocessors
-from pt_chat_frontend.persistence import models
+from frec_server.persistence import models
 from commonmark import Parser, HtmlRenderer
 from bs4 import BeautifulSoup
 

@@ -7,11 +7,11 @@ import sqlalchemy
 from sqlmodel import Session, select, col
 import hashlib
 
-from pt_chat_frontend import configuration
-from pt_chat_frontend.tool_calling import agent_client, mcp_manager, tool_prompting
-import pt_chat_frontend.persistence.models as m
-import pt_chat_frontend.persistence.db as db
-import pt_chat_frontend.llm.inference as inference
+from frec_server import configuration
+from frec_server.tool_calling import agent_client, mcp_manager, tool_prompting
+import frec_server.persistence.models as m
+import frec_server.persistence.db as db
+import frec_server.llm.inference as inference
 
 
 def is_conversation_id_valid(database: db.Database, cid: uuid.UUID):

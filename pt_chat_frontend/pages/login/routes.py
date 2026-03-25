@@ -7,16 +7,16 @@ from fastapi import FastAPI, Form, Request, Response
 from fastapi.responses import HTMLResponse, RedirectResponse
 from pydantic import BaseModel
 
-from pt_chat_frontend.pages.common import (
+from frec_server.pages.common import (
     get_request_user_id,
     get_request_user_session,
     set_request_user,
     set_request_user_session,
 )
-from pt_chat_frontend.persistence import db_queries
-from pt_chat_frontend.persistence.db import get_global_db
+from frec_server.persistence import db_queries
+from frec_server.persistence.db import get_global_db
 
-from pt_chat_frontend.pages.login import views
+from frec_server.pages.login import views
 
 db = get_global_db()
 

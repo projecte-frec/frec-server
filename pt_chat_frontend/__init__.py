@@ -3,17 +3,17 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-import pt_chat_frontend.configuration as configuration
-import pt_chat_frontend.persistence.db as database
+import frec_server.configuration as configuration
+import frec_server.persistence.db as database
 
 # Import SQLModel models to trigger their registration
-from pt_chat_frontend.persistence import db_queries, models as _
+from frec_server.persistence import db_queries, models as _
 
 # Initialize the singletons early on so page modules can grab it when loaded.
 config_file = configuration.get_config_file()
 database.init_db()
 
-from pt_chat_frontend.executor import conversation_task_manager
+from frec_server.executor import conversation_task_manager
 
 conversation_task_manager.init_conversation_task_manager()
 
@@ -25,10 +25,10 @@ app = FastAPI()
 app.mount("/assets", StaticFiles(directory="assets"), name="assets")
 app.mount("/js", StaticFiles(directory="assets"), name="assets")
 
-from pt_chat_frontend import pages
+from frec_server import pages
 
 pages.register_routes(app)
 
-from pt_chat_frontend import rest_api
+from frec_server import rest_api
 
 rest_api.register_routes(app)

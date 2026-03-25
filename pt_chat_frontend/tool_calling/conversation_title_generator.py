@@ -4,9 +4,9 @@ from typing import Sequence
 from pydantic import BaseModel
 import pydantic
 
-from pt_chat_frontend.llm.inference import ChatMessage, LlmInference
-from pt_chat_frontend.llm.prompt_templates import PromptTemplate
-from pt_chat_frontend.persistence import models
+from frec_server.llm.inference import ChatMessage, LlmInference
+from frec_server.llm.prompt_templates import PromptTemplate
+from frec_server.persistence import models
 
 
 def generate_conversation_title_prompt(

@@ -2,12 +2,12 @@ import asyncio
 import uuid
 import os
 
-from pt_chat_frontend.executor.conversation_task import ConversationTask
-from pt_chat_frontend.llm.inference import LlmInference
-from pt_chat_frontend.persistence import db_queries, models
-import pt_chat_frontend.persistence.db
+from frec_server.executor.conversation_task import ConversationTask
+from frec_server.llm.inference import LlmInference
+from frec_server.persistence import db_queries, models
+import frec_server.persistence.db
 
-database = pt_chat_frontend.persistence.db.get_global_db()
+database = frec_server.persistence.db.get_global_db()
 
 
 class ConversationTaskmanager:
@@ -46,7 +46,7 @@ ctaskmgr: ConversationTaskmanager | None = None
 
 def init_conversation_task_manager():
     global ctaskmgr
-    from pt_chat_frontend.llm.inference import (
+    from frec_server.llm.inference import (
         OpenAiInference,
         OllamaInference,
         PtInference,

@@ -15,21 +15,21 @@ from datastar_py.fastapi import DatastarResponse, ReadSignals
 from fastapi import FastAPI, HTTPException, Request, Response
 from fastapi.responses import HTMLResponse, RedirectResponse
 
-from pt_chat_frontend import configuration
-import pt_chat_frontend.executor.conversation_task as ct
-import pt_chat_frontend.llm.inference as inference
-import pt_chat_frontend.pages.chat.views as views
-from pt_chat_frontend.pages.common import (
+from frec_server import configuration
+import frec_server.executor.conversation_task as ct
+import frec_server.llm.inference as inference
+import frec_server.pages.chat.views as views
+from frec_server.pages.common import (
     markdown_to_html,
     get_request_user,
     get_request_user_id,
 )
-import pt_chat_frontend.persistence.models as models
+import frec_server.persistence.models as models
 
-from pt_chat_frontend.executor.conversation_task_manager import get_global_task_manager
-from pt_chat_frontend.persistence import db_queries, db as database
-from pt_chat_frontend.tool_calling import rag_client
-from pt_chat_frontend.utils import uuid_to_html_id
+from frec_server.executor.conversation_task_manager import get_global_task_manager
+from frec_server.persistence import db_queries, db as database
+from frec_server.tool_calling import rag_client
+from frec_server.utils import uuid_to_html_id
 
 
 ctaskmgr = get_global_task_manager()

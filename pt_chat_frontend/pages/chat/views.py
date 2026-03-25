@@ -7,9 +7,9 @@ import htpy
 from htpy import article, button, details, dialog, form, h2, h3, hr, html, head, body, label, li, meta, option, p, progress, select, span, summary, table, tbody, td, textarea, thead, title, link, script, nav, div, a, strong, section, fragment, tr, ul, th
 # fmt: on
 from datastar_py import attribute_generator as data
-from pt_chat_frontend.pages.common import data_on_enter, page_with_navbar, page_wrapper
-from pt_chat_frontend.persistence import models
-from pt_chat_frontend.utils import uuid_to_html_id
+from frec_server.pages.common import data_on_enter, page_with_navbar, page_wrapper
+from frec_server.persistence import models
+from frec_server.utils import uuid_to_html_id
 
 
 class Ids(StrEnum):

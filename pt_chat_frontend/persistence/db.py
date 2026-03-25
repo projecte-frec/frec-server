@@ -5,8 +5,8 @@ import sqlalchemy
 from sqlmodel import SQLModel, Session, col, select
 import sqlmodel
 
-from pt_chat_frontend.persistence import migrations
-from pt_chat_frontend.persistence import models as m
+from frec_server.persistence import migrations
+from frec_server.persistence import models as m
 
 
 FREC_DEPLOY_MODE_ENV = "FREC_DEPLOY_MODE"
