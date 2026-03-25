@@ -19,13 +19,13 @@ públics fins a les bases de dades de la teva organització.
 
 **Característiques**
 - **Intel·ligència artificial, en Català**: FREC s'ha dissenyat posant especial èmfasi en
-  l'ús del català. Malgrat que les limitacions dels LLM en la nostra llengua, el sistema
+  l'ús del català. Malgrat les limitacions dels LLM en la nostra llengua, el sistema
   incorpora els últims models amb millor suport pel català i ho complementa amb eines
   robustes de l'ecosistema digital en català: Correctors, traductors i diccionaris.
 - **Privadesa pre defecte, per garantir la sobirania digital**: FREC no comparteix cap
   dada amb tercers i es connecta amb motors d'inferència com [Ollama](https://ollama.com)
   i [Vllm](https://github.com/vllm-project/vllm). Això permet una gestió total de les
-  dades sense haver de confiar-ne el bon tractament a tercers.
+  dades sense haver de confiar-ne el bon tractament a empreses externes.
 - **Connexió amb el protocol MCP**: FREC soporta el [protocol
   MCP](https://modelcontextprotocol.io/docs/getting-started/intro). Aquest protocol permet
   a agents basats en tecnologia LLM connectar-se a eines digitals. L'ús d'eines mitjançant
