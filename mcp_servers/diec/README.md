@@ -3,9 +3,6 @@
 
 Aquest servidor proporciona un servei d'accés al _Diccionari General de la Llengua Catalana_ (2a edició) de l'Institut d'Estudis Catalans (DIEC2).
 
-## Obtenció de les dades
-Les dades no són de lliure distribució, i per tant us cal obtenir-les posant-vos en contacte directament amb l'IEC. 
-
 ## Preprocessament de les dades
 Per al servidor actual es va fer servir la versió de dades `DIEC2_20260226.xml`, en format XML. Aquestes dades es van processar amb l'script de python `aux/conversor.py`.
 
@@ -28,7 +25,7 @@ A continuació genera dos fitxers més amb el contingut del DIEC2 indexat, que e
 * `mcp_servers/diec/data/DIEC_file_indices.json`
 * `mcp_servers/diec/data/DIEC_file_content.json`
 
-Aquests són els fitxers que el servidor MCP farà servir. Cal que quedin en aquesta mateixa ubicació `mcp_servers/diec/data`.
+Aquests són els fitxers que el servidor MCP fa servir. Cal que quedin en aquesta mateixa ubicació `mcp_servers/diec/data`.
 
 
 
