@@ -276,3 +276,13 @@ Cal obrir els ports 80 (HTTP), 22 (SSH) i 443 (HTTPS).
 ```bash
     $ run-docker.py --prod --conf <nom del fitxer de configuració, per defecte frec-config.yml> up
 ```
+# Agraïments
+L'inici d'aquest projecte ha rebut l'impuls de:
+
+![EUNextGen](./img/UE+Gobierno+Pla.png)
+
+Amb el suport de:
+
+![GenCat](./img/dept-empresa-i-treball.png)
+
+
