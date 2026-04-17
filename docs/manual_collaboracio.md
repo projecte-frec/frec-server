@@ -22,7 +22,7 @@ Si proposeu noves eines, afegiu-les a la llista \*\*\* respectant
 l'estructura de fitxa ja existent, on els camps marcats amb asterisc són
 obligatoris.
 
-## Camps a la fitxa d'eina
+### Camps a la fitxa d'eina
 
 -   **Nom**\* de l'eina 
 -   **Enllaç:** URL a l'aplicació 
@@ -44,7 +44,7 @@ obligatoris.
     -   lleure i vida activa 
     -   referència
 
-## Exemple de fitxa d'eina
+### Exemple de fitxa d'eina
 | Camp           | Valor                                                                                                  |
 | -------------- | ------------------------------------------------------------------------------------------------------ |
 | Nom            | Viccionari                                                                                             |
