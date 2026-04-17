@@ -9,9 +9,9 @@ a la tasca d'integrar-ne com per a la de proposar-ne de noves.
 1.   **Està ja integrada?** Assegureu-vos que no estigui ja integrada a
     FREC, consultant la taula \*\*\*.
 2.   **És una eina de nova proposta?** Consulteu si ja consta a
-    l'Inventari d'eines digitals en i per al català ***.\
+    l'Inventari d'eines digitals en i per al català ***. 
     En cas que no, afegiu-la-hi seguint les instruccions de la secció
-    següent (*Si voleu proposar noves eines...*) ***.
+    següent (*Si voleu proposar noves eines...*) ***. 
 3.   **Documenteu el seu estat.** Afegiu l'eina a la taula \*\*\* i
     indiqueu l'estat de la seva integració (*pendent, en procés, en
     revisió, completada*).
@@ -24,24 +24,24 @@ obligatoris.
 
 ## Camps a la fitxa d'eina
 
--   **Nom**\* de l'eina\
--   **Enllaç:** URL a l'aplicació\
+-   **Nom**\* de l'eina \
+-   **Enllaç:** URL a l'aplicació \
 -   **Empresa**\* \
 -   **Funció bàsica**\* (Per exemple, plataforma de reproducció de
-    música, traductor, correu electrònic, etc.)\
--   **Descripció**\
+    música, traductor, correu electrònic, etc.) \
+-   **Descripció** \
 -   **Àrea** (Escolliu entre els següents camps):
-    -   comunicació\
-    -   mapes i viatges\
-    -   contingut audiovisual\
-    -   meteo\
-    -   economia\
-    -   mobilitat i transport\
-    -   general / varis\
-    -   motor IA\
-    -   llengua\
-    -   productivitat\
-    -   lleure i vida activa\
+    -   comunicació \
+    -   mapes i viatges \
+    -   contingut audiovisual \
+    -   meteo \
+    -   economia \
+    -   mobilitat i transport \
+    -   general / varis \
+    -   motor IA \
+    -   llengua \
+    -   productivitat \
+    -   lleure i vida activa \
     -   referència
 
 ## Exemple de fitxa d'eina
@@ -51,5 +51,5 @@ obligatoris.
 | Enllaç         | [https://ca.wiktionary.org/wiki/Viccionari:Portada](https://ca.wiktionary.org/wiki/Viccionari:Portada) |
 | Desenvolupador | Fundació Wikimedia                                                                                     |
 | Funció         | Diccionari                                                                                             |
-| Àrea           | Llengua (LLGA)                                                                                         |
+| Àrea           | Llengua                                                                                        |
 | Descripció     | Diccionari col·laboratiu amb definicions i traduccions.                                                |
