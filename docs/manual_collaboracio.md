@@ -24,24 +24,24 @@ obligatoris.
 
 ## Camps a la fitxa d'eina
 
--   **Nom**\* de l'eina \
--   **Enllaç:** URL a l'aplicació \
--   **Empresa**\* \
+-   **Nom**\* de l'eina 
+-   **Enllaç:** URL a l'aplicació 
+-   **Empresa**\* 
 -   **Funció bàsica**\* (Per exemple, plataforma de reproducció de
-    música, traductor, correu electrònic, etc.) \
--   **Descripció** \
+    música, traductor, correu electrònic, etc.) 
+-   **Descripció** 
 -   **Àrea** (Escolliu entre els següents camps):
-    -   comunicació \
-    -   mapes i viatges \
-    -   contingut audiovisual \
-    -   meteo \
-    -   economia \
-    -   mobilitat i transport \
-    -   general / varis \
-    -   motor IA \
-    -   llengua \
-    -   productivitat \
-    -   lleure i vida activa \
+    -   comunicació 
+    -   mapes i viatges 
+    -   contingut audiovisual 
+    -   meteo 
+    -   economia 
+    -   mobilitat i transport 
+    -   general / varis 
+    -   motor IA 
+    -   llengua 
+    -   productivitat 
+    -   lleure i vida activa 
     -   referència
 
 ## Exemple de fitxa d'eina
