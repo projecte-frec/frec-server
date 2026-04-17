@@ -1,8 +1,9 @@
+# Catàleg d’eines 
 Aquest document presenta el llistat d’eines digitals (integrades o pendents d’integrar) de la plataforma FREC.  Això inclou tant aplicacions que compten amb una versió en català com aplicacions que, tot i no complir aquest requisit, tenen un ús ampli dins el teixit catalanoparlant i per tant sembla clar que incorporar-les a FREC serà beneficiós pels usuaris en aquesta llengua. 
 
 Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. ***
 
-# Catàleg d’eines (ordenat alfabèticament)
+# Catàleg per ordre alfabètic
 
 ## A Better Routeplanner (ABRP)
 | Camp | Valor |
