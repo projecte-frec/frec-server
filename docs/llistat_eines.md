@@ -3,9 +3,9 @@ Aquest document presenta el llistat d’eines digitals (integrades o pendents d�
 
 Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. ***
 
-# Catàleg per ordre alfabètic
+## Llistat per ordre alfabètic
 
-## A Better Routeplanner (ABRP)
+### A Better Routeplanner (ABRP)
 | Camp | Valor |
 |------|------|
 | Nom | A better Routeplanner (ABRP) |
@@ -15,7 +15,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Mapes i viatges (MA-VI) |
 | Descripció | Planificador de viatges per vehicles elèctrics amb rutes i punts de càrrega. |
 
-## Apertium
+### Apertium
 | Camp | Valor |
 |------|------|
 | Nom | Apertium |
@@ -25,7 +25,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Llengua (LLGA) |
 | Descripció | Traductor obert especialment eficient entre llengües romàniques. |
 
-## ChatGPT - Open AI
+### ChatGPT - Open AI
 | Camp | Valor |
 |------|------|
 | Nom | ChatGPT |
@@ -35,7 +35,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Motor IA (IA) |
 | Descripció | IA conversacional per generar contingut, resoldre dubtes i assistència lingüística. |
 
-## Catàleg de dades obertes - Portal OpenData AMB
+### Catàleg de dades obertes - Portal OpenData AMB
 | Camp | Valor |
 |------|------|
 | Nom | Catàleg de dades obertes - Portal OpenData AMB |
@@ -45,7 +45,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | General (GRAL) |
 | Descripció | Portal de dades obertes amb conjunts de dades reutilitzables via API. |
 
-## Corrector ortogràfic i gramatical - SoftCatalà
+### Corrector ortogràfic i gramatical - SoftCatalà
 | Camp | Valor |
 |------|------|
 | Nom | Corrector ortogràfic i gramatical |
@@ -55,7 +55,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Llengua (LLGA) |
 | Descripció | Eina per detectar i corregir errors ortogràfics i gramaticals en català. |
 
-## DeepSeek - DeepSeek AI
+### DeepSeek - DeepSeek AI
 | Camp | Valor |
 |------|------|
 | Nom | DeepSeek |
@@ -65,7 +65,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Motor IA |
 | Descripció | Motor de cerca amb IA per analitzar i resumir informació. |
 
-## Diccionari de la Llengua Catalana - IEC
+### Diccionari de la Llengua Catalana - IEC
 | Camp | Valor |
 |------|------|
 | Nom | Diccionari de la Llengua Catalana - DIEC2 |
@@ -75,7 +75,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Llengua (LLGA) |
 | Descripció | Diccionari normatiu amb definicions i informació lingüística. |
 
-## Diccionari de sinònims - SoftCatalà
+### Diccionari de sinònims - SoftCatalà
 | Camp | Valor |
 |------|------|
 | Nom | Diccionari de sinònims |
@@ -85,7 +85,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Llengua (LLGA) |
 | Descripció | Cercador de sinònims en català. |
 
-## Furkot
+### Furkot
 | Camp | Valor |
 |------|------|
 | Nom | Furkot |
@@ -95,7 +95,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Mapes i viatges (MA-VI) |
 | Descripció | Planificador d’itineraris amb allotjaments i activitats. |
 
-## Gmail - Google Inc.
+### Gmail - Google Inc.
 | Camp | Valor |
 |------|------|
 | Nom | Gmail |
@@ -105,7 +105,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Comunicació (COM) |
 | Descripció | Servei de correu electrònic amb filtres i integració Google. |
 
-## Google Calendar - Google Inc.
+### Google Calendar - Google Inc.
 | Camp | Valor |
 |------|------|
 | Nom | Google Calendar |
@@ -125,7 +125,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Productivitat (PROD) |
 | Descripció | Emmagatzematge i col·laboració de fitxers al núvol. |
 
-## Google Meet - Google Inc.
+### Google Meet - Google Inc.
 | Camp | Valor |
 |------|------|
 | Nom | Google Meet |
@@ -135,7 +135,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Comunicació (COM) |
 | Descripció | Videoconferències amb qualitat alta i compartició de pantalla. |
 
-## Google Search - Google Inc.
+### Google Search - Google Inc.
 | Camp | Valor |
 |------|------|
 | Nom | Google Search |
@@ -145,7 +145,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Referència (REF) |
 | Descripció | Cercador web amb resultats rellevants i funcions avançades. |
 
-## Google Translate - Google LLC
+### Google Translate - Google LLC
 | Camp | Valor |
 |------|------|
 | Nom | Google Translate |
@@ -155,7 +155,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Llengua (LLGA) |
 | Descripció | Traducció multilingüe amb IA en text, veu i imatges. |
 
-## Jitsi - 8x8
+### Jitsi - 8x8
 | Camp | Valor |
 |------|------|
 | Nom | Jitsi |
@@ -165,7 +165,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Treball en equip (EQUIP) |
 | Descripció | Videotrucades gratuïtes i de codi obert. |
 
-## Lufi - Luc Didry
+### Lufi - Luc Didry
 | Camp | Valor |
 |------|------|
 | Nom | Lufi |
@@ -175,7 +175,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Productivitat (PROD) |
 | Descripció | Transferència de fitxers xifrats i temporals. |
 
-## Meteocat - Servei Meteorològic de Catalunya
+### Meteocat - Servei Meteorològic de Catalunya
 | Camp | Valor |
 |------|------|
 | Nom | Meteocat |
@@ -185,7 +185,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Meteorologia (METEO) |
 | Descripció | Previsions meteorològiques i dades de Catalunya. |
 
-## Moovitapp
+### Moovitapp
 | Camp | Valor |
 |------|------|
 | Nom | Moovitapp |
@@ -195,7 +195,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Mobilitat i transport (MO-TR) |
 | Descripció | Rutes de transport públic en ciutats. |
 
-## Padlet
+### Padlet
 | Camp | Valor |
 |------|------|
 | Nom | Padlet |
@@ -205,7 +205,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Treball en equip (EQUIP) |
 | Descripció | Taulers col·laboratius visuals amb IA. |
 
-## Settle Up
+### Settle Up
 | Camp | Valor |
 |------|------|
 | Nom | Settle Up |
@@ -215,7 +215,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Lleure i vida activa (LL-VA) |
 | Descripció | Gestió de despeses en grup. |
 
-## Smodin
+### Smodin
 | Camp | Valor |
 |------|------|
 | Nom | Smodin |
@@ -225,7 +225,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Llengua (LLGA) |
 | Descripció | IA per escriure, resumir i traduir textos. |
 
-## TMB App - Transports Metropolitans de Barcelona
+### TMB App - Transports Metropolitans de Barcelona
 | Camp | Valor |
 |------|------|
 | Nom | TMB App |
@@ -235,7 +235,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Mobilitat i transport (MO-TR) |
 | Descripció | Informació de metro, bus i bicicleta a Barcelona. |
 
-## Viquipèdia - Fundació Wikimedia
+### Viquipèdia - Fundació Wikimedia
 | Camp | Valor |
 |------|------|
 | Nom | Viquipèdia |
@@ -245,7 +245,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Referència (REF) |
 | Descripció | Enciclopèdia col·laborativa de contingut lliure. |
 
-## Viccionari - Fundació Wikimedia
+### Viccionari - Fundació Wikimedia
 | Camp | Valor |
 |------|------|
 | Nom | Viccionari |
@@ -255,7 +255,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Llengua (LLGA) |
 | Descripció | Diccionari col·laboratiu amb definicions i traduccions. |
 
-## Windy - Windyty
+### Windy - Windyty
 | Camp | Valor |
 |------|------|
 | Nom | Windy |
@@ -265,7 +265,7 @@ Podeu consultar si han estat integrats a la plataforma FREC en aquesta taula. **
 | Àrea | Meteorologia (METEO) |
 | Descripció | Visualització de dades meteorològiques en temps real. |
 
-## Waze
+### Waze
 | Camp | Valor |
 |------|------|
 | Nom | Waze |
