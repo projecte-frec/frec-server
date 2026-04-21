@@ -15,7 +15,7 @@ a la tasca d'integrar-ne com per a la de proposar-ne de noves.
 
 ### Si voleu proposar noves eines...
 
-Si proposeu noves eines, afegiu-les a la llista \*\*\* respectant
+Si proposeu noves eines, afegiu-les a la llista de sota, respectant
 l'estructura de fitxa ja existent, on els camps marcats amb asterisc són
 obligatoris.
 
