@@ -5,19 +5,19 @@ Aquest manual guia en els passos a seguir per documentar i gestionar
 col·lectivament les integracions d'eines a la plataforma FREC, tant per
 a la tasca d'integrar-ne com per a la de proposar-ne de noves.
 
-### Si voleu integrar una eina...
-
-1.   **Està ja integrada?** Assegureu-vos que no estigui ja integrada a
-    FREC, consultant la taula d'eines que hi ha a la secció 2 d'aquest mateix document.
-2.   **És una eina de nova proposta?** En cas que sí, afegiu-la a aquesta mateixa taula seguint les instruccions que es donen a continuació. 
-4.   **Documenteu el seu estat.** Indiqueu l'estat de la integració al camp Estatus de la taula (*pendent, en procés, en
-    revisió, completada*).
-
 ### Si voleu proposar noves eines...
 
 Si proposeu noves eines, afegiu-les a la llista de sota, respectant
 l'estructura de fitxa ja existent, on els camps marcats amb asterisc són
 obligatoris.
+
+### Si voleu integrar una eina...
+
+1.   **Ja està integrada?** Assegureu-vos-en, consultant la taula d'eines que hi ha a la secció 2 d'aquest mateix document.
+2.   **És una eina de nova proposta?** En cas que sí, afegiu-la a aquesta mateixa taula seguint les instruccions que es donen a continuació. 
+4.   **Documenteu el seu estat.** Indiqueu l'estat de la integració al camp Estatus de la taula (*pendent, en procés, en
+    revisió, completada*).
+
 
 #### Camps a la fitxa d'eina
 
