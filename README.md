@@ -278,7 +278,7 @@ Cal obrir els ports 80 (HTTP), 22 (SSH) i 443 (HTTPS).
 ```
 # Documentació addicional
 Per col·laborar amb èxit al projecte, teniu també a disposició els següents manuals: 
-* [Documentació de la API REST del sistema FREC](https://github.com/projecte-frec/frec-server/blob/main/docs/rest_api.md)
+* [Documentació de l'API REST del sistema FREC](https://github.com/projecte-frec/frec-server/blob/main/docs/rest_api.md)
 * [Manual d'integració i proposta d'eines a FREC](https://github.com/projecte-frec/frec-server/blob/main/docs/manual_collaboracio.md)
 
 # Agraïments
