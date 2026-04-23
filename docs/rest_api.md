@@ -1,4 +1,4 @@
-# Documentació de la API REST del sistema FREC
+# Documentació de l'API REST del sistema FREC
 
 En aquest document es recull la documentació de la API REST del sistema FREC, que permet
 comunicar-se amb el sistema d'inferència i clients MCP de la mateixa manera que ho fa la
