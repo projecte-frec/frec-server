@@ -9,9 +9,9 @@
 
 *Find the English version [here](docs/README_EN.md)*
 
-Frec és una finestra única d'accés a la IA local i autogestionada per a empreses i
-organitzacions. Ofereix una interfície conversacional on diversos usuaris podràn
-interactuar amb agents connectats a tot un ecosistema d'eines digitals: Des de serveis
+FREC és una finestra única d'accés a la IA local i autogestionada per a empreses i
+organitzacions. Ofereix una interfície conversacional on diversos usuaris podran
+interactuar amb agents connectats a tot un ecosistema d'eines digitals: des de serveis
 públics fins a les bases de dades de la teva organització.
 
 
@@ -19,19 +19,19 @@ públics fins a les bases de dades de la teva organització.
 
 **Característiques**
 - **Intel·ligència artificial, en Català**: FREC s'ha dissenyat posant especial èmfasi en
-  l'ús del català. Malgrat les limitacions dels LLM en la nostra llengua, el sistema
+  l'ús del català. Malgrat les limitacions dels LLMs en la nostra llengua, el sistema
   incorpora els últims models amb millor suport pel català i ho complementa amb eines
   robustes de l'ecosistema digital en català: Correctors, traductors i diccionaris.
-- **Privadesa pre defecte, per garantir la sobirania digital**: FREC no comparteix cap
+- **Privadesa per defecte, per garantir la sobirania digital**: FREC no comparteix cap
   dada amb tercers i es connecta amb motors d'inferència com [Ollama](https://ollama.com)
   i [Vllm](https://github.com/vllm-project/vllm). Això permet una gestió total de les
   dades sense haver de confiar-ne el bon tractament a empreses externes.
-- **Connexió amb el protocol MCP**: FREC soporta el [protocol
+- **Connexió amb el protocol MCP**: FREC aplica el [protocol
   MCP](https://modelcontextprotocol.io/docs/getting-started/intro). Aquest protocol permet
   a agents basats en tecnologia LLM connectar-se a eines digitals. L'ús d'eines mitjançant
-  protocols com MCP és fonamental per a suplir les carències d'aquests models: Fent que el
-  model es dediqui al processament de llenguatge i minimitzant la tasca cognitiva, reduïm
-  significativament el risc d'alucinacions.
+  protocols com MCP és fonamental per a suplir les carències d'aquests models: fent que el
+  model es dediqui al processament de llenguatge i minimitzant la tasca cognitiva, reduim
+  significativament el risc d'al·lucinacions.
 - **Programari lliure, adaptable a cada organització**: FREC es distribueix com a
   programari lliure, juntament amb un conjunt d'eines d'interès general. A més, s'inclou
   documentació perquè qualsevol organització pugui adaptar-lo a les seves necessitats,
@@ -49,21 +49,21 @@ git clone https://github.com/projecte-frec/frec-server.git
 ```
 
 ### Pas 1 - Configurar les variables d'entorn. 
-Copieu el fitxer env.example en un nou fitxer `.env` i editeu-ne el contingut. Caldrà
-sel·leccionar un proveïdor LLM i configurar-lo.
+Copieu el fitxer env.example a un nou fitxer `.env` i editeu-ne el contingut. Caldrà
+seleccionar un proveïdor LLM i configurar-lo.
 ```
 cp env.example .env
 ```
-Un exemple de fitxer .env configurat per a ollama seria el següent:
+Un exemple de fitxer .env configurat per a Ollama seria el següent:
 ```
 LLM_PROVIDER="ollama"
 OLLAMA_INFERENCE_HOST="http://localhost:11434"
 OLLAMA_INFERENCE_MODEL="ministral-3:14b"
 ```
-Per més informació, veure la secció "Configurar proveïdor d'inferència" més avall.
+Per a més informació, vegeu la secció "Configurar proveïdor d'inferència" més avall.
 
 > [!IMPORTANT]
-> Alguns servidors MCP (per exemple, TMB) requereixen claus d'API addicionals que s'hauran d'introduïr en aquest fitxer.
+> Alguns servidors MCP (per exemple, TMB) requereixen claus d'API addicionals que s'hauran d'introduir en aquest fitxer.
 
 ### Pas 2 - Compilar el servei
 Utilitzarem l'script `run-docker.py` per facilitar algunes de les tasques. Aquest script és un petit wrapper sobre [`docker compose`](https://docs.docker.com/compose/).
@@ -83,17 +83,17 @@ Utilitzarem l'script `run-docker.py` per facilitar algunes de les tasques. Aques
 Un cop iniciat el sistema, la interfície de FREC es trobarà a http://localhost:3000/ 
 
 > [!CAUTION]
-> Si no es configuren credencials d'admin per entorn, el primer usuari que inicïi sessió es considerarà l'Admin (mode desenvolupament).
+> Si no es configuren credencials d'admin per entorn, el primer usuari que iniciï sessió es considerarà l'Admin (mode desenvolupament).
 
 # Guia d'ús de FREC
 ## Eines
 ### Configuració
 #### Nova eina
-Les eines de FREC es configuren al fitxer de configuració frec-config.yml, o creant un arxiu específic corresponent de la vostra versió per a evitar incompatibilitats amb futures versions. Recomanem seguir l'estàndard de `[nom de la vostra integració]-config.yml`
+Les eines de FREC es configuren al fitxer de configuració frec-config.yml, o creant un arxiu específic corresponent de la vostra versió per evitar incompatibilitats amb futures versions. Recomanem seguir l'estàndard de `[nom de la vostra integració]-config.yml`
 
 #### Gestió de permisos
 
-Des de l'interfície de FREC, a l'apartat de Configuració, es poden modificar les diferents
+Des de la interfície de FREC, a l'apartat de Configuració, es poden modificar les diferents
 eines i permisos. Cada eina es pot Activar/Desactivar mitjançant l'interruptor `Activada`.
 
 Clicant sobre l'`Estat` de l'eina es pot veure quines funcions té.
@@ -117,7 +117,7 @@ Prémer sobre el missatge informatiu mostrarà el procés que segueix l'eina i l
 ### Crear un entorn virtual
 Permetrà l'accés a l'entorn que heu aixecat dins el contenidor de docker a la vostra IDE.
 > [!NOTE]
-> Aquest pas només caldrà executar-lo en el moment de la inicialització.
+> Aquest pas només caldrà executar-lo al moment de la inicialització.
 
 ```
 python -m venv venv
@@ -139,7 +139,7 @@ Cada servidor es defineix a tres punts diferents:
 
 1. Té l'script corresponent a la carpeta `mcp_servers/`. Per exemple, `mcp_servers/viquipedia_mcp.py`.
 
-    Aquí és on es determinarà el port mcp per afegir el servidor al panel de control de FREC.
+    Aquí és on es determinarà el port mcp per afegir el servidor al panell de control de FREC.
 
     Per desenvolupar el vostre servidor, trobareu la plantilla `template_mcp` dins la carpeta `mcp_servers/`.
 
@@ -154,7 +154,7 @@ Cada servidor es defineix a tres punts diferents:
 
 Cal tenir en compte si el nou MCP serà autohostatjat o extern. Per als serveis
 autohostatjats s'utilitzarà un `endpoint` que apunti dins la xarxa docker, com
-`http://mcp_viquipedia:8011/mcp`. Per MCP externs, s'haurà d'introduïr una URL vàlida que
+`http://mcp_viquipedia:8011/mcp`. Per MCP externs, s'haurà d'introduir una URL vàlida que
 apunti al vostre servidor.
 
 > [!NOTE]
