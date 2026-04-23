@@ -21,9 +21,10 @@ obligatoris.
 
 #### Camps a la fitxa d'eina
 
--   **Nom**\* de l'eina 
--   **Enllaç:** URL a l'aplicació 
--   **Empresa**\* 
+-   **Nom**\* de l'eina.
+-   **Estatus**\* Valors possibles: *pendent, en procés, en revisió, completada*.
+-   **Enllaç:** URL a l'aplicació. 
+-   **Empresa**\* desenvolupadora de l'eina.
 -   **Funció bàsica**\* (Per exemple, plataforma de reproducció de
     música, traductor, correu electrònic, etc.) 
 -   **Descripció** 
@@ -44,7 +45,7 @@ obligatoris.
 
 ## 2. Llistat d'eines
 
-| Nom | Estatus | Enllaç | Desenvolupador | Funció | Àrea | Descripció |
+| Nom | Estatus | Enllaç | Empresa | Funció | Àrea | Descripció |
 |-----|---------|--------|----------------|--------|------|------------|
 | A better Routeplanner (ABRP) | pendent | https://abetterrouteplanner.com/ | Rivian Automotive, Inc. | Planificador de rutes | Mapes i viatges (MA-VI) | Planificador de viatges per vehicles elèctrics amb rutes i punts de càrrega. |
 | Apertium | desplegat | https://www.apertium.org/index.cat.html#?dir=cat-epo&q= | Apertium | Traductor | Llengua (LLGA) | Traductor obert especialment eficient entre llengües romàniques. |
