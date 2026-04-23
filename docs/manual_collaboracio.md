@@ -7,13 +7,13 @@ a la tasca d'integrar-ne com per a la de proposar-ne de noves.
 
 ### Si voleu proposar noves eines...
 
-Si proposeu noves eines, afegiu-les a la llista de sota, respectant
+Si proposeu noves eines, afegiu-les a la taula de la secció 2 d'aquest document, respectant
 l'estructura de fitxa ja existent, on els camps marcats amb asterisc són
 obligatoris.
 
 ### Si voleu integrar una eina...
 
-1.   **Ja està integrada?** Assegureu-vos-en, consultant la taula d'eines que hi ha a la secció 2 d'aquest mateix document.
+1.   **Ja està integrada?** Assegureu-vos-en, consultant la taula d'eines de més avall.
 2.   **És una eina de nova proposta?** En cas que sí, afegiu-la a aquesta mateixa taula seguint les instruccions que es donen a continuació. 
 4.   **Documenteu el seu estat.** Indiqueu l'estat de la integració al camp Estatus de la taula (*pendent, en procés, en
     revisió, completada*).
