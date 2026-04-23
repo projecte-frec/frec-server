@@ -77,4 +77,4 @@ obligatoris.
 
 ## 3. Reconeixement
 
-Aquest llistat parteix de [Galàxia](https://accentobert.cat/projectes/galaxia/), el repositori d’eines digitals en català desenvolupat per Accent Obert i SoftCatalà. 
+Aquest llistat parteix de [Galàxia](https://accentobert.cat/projectes/galaxia/), el repositori d’eines digitals en català desenvolupat per [Accent Obert](https://accentobert.cat/) i [SoftCatalà](https://www.softcatala.org/). 
