@@ -10,7 +10,7 @@ from commonmark import Parser, HtmlRenderer
 from bs4 import BeautifulSoup
 
 # fmt: off
-from htpy import article, button, details, form, h2, html, head, body, label, li, meta, option, p, progress, select, span, summary, table, tbody, td, thead, title, link, script, nav, div, a, strong, section, fragment, tr, ul
+from htpy import article, button, details, form, h2, html, head, body, img, label, li, meta, option, p, progress, select, span, summary, table, tbody, td, thead, title, link, script, nav, div, a, strong, section, fragment, tr, ul
 # fmt: on
 
 
@@ -58,7 +58,9 @@ def page_wrapper(contents: htpy.Element) -> htpy.Element:
 
 def navbar(username: str | None, center: htpy.Element | None) -> htpy.Element:
     return div(".flex.flex-row.align-items-center.bg-base-100.shadow-xs.min-h-12.pl-3")[
-        a(".btn.self-center.btn-ghost.text-xl")["💬 FREC"],
+        a(".btn.self-center.btn-ghost.text-xl", href="/")[
+            img(src="/assets/Logo Frec Black.svg", alt="Frec Logo", style="height:35px")
+        ],
         div(".flex-1"),
         center,
         div(".flex-1"),
@@ -124,7 +126,9 @@ def data_on_enter(action: str) -> datastar_py.attributes.OnAttr:
     )
 
 
-def markdown_to_html(md_text: str, cleanup_links: bool = False, remove_images: bool = False) -> str:
+def markdown_to_html(
+    md_text: str, cleanup_links: bool = False, remove_images: bool = False
+) -> str:
     parser = Parser()
     renderer = HtmlRenderer()
 
@@ -137,13 +141,13 @@ def markdown_to_html(md_text: str, cleanup_links: bool = False, remove_images: b
     for tag in soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6"]):
         tag["class"] = tag.get("class", []) + [  # type:ignore
             "font-bold",
-            "mt-6",
+            "mt-2",
             "mb-2",
         ]
 
     # Paragraphs
     for tag in soup.find_all("p"):
-        tag["class"] = tag.get("class", []) + ["my-4", "leading-relaxed"]  # type:ignore
+        tag["class"] = tag.get("class", []) + ["leading-relaxed"]  # type:ignore
 
     # Links
     for tag in soup.find_all("a"):
@@ -158,7 +162,7 @@ def markdown_to_html(md_text: str, cleanup_links: bool = False, remove_images: b
             "ml-6",
             "my-4",
         ]
-        
+
     # Images
     if remove_images:
         for tag in soup.find_all("img"):

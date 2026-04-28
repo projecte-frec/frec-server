@@ -265,6 +265,7 @@ class ToolCallTask:
                                         document_filename=citation.document_filename,
                                         page_start=citation.page_start,
                                         page_end=citation.page_end,
+                                        heading_path=citation.heading,
                                     )
 
                                 result_dict = {

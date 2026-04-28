@@ -1,6 +1,7 @@
 from enum import StrEnum
 import json
-from typing import AsyncGenerator
+from typing import AsyncGenerator, Optional
+import uuid
 import aiohttp
 import fastapi
 from pydantic import BaseModel
@@ -35,12 +36,13 @@ async def get_status(url: str, token: str) -> tuple[RagServerStatus, str]:
 
 
 class RagTextChunk(BaseModel):
-    id: int
-    text: str
+    id: uuid.UUID
+    document_id: uuid.UUID
     document_filename: str
-    page_start: int
-    page_end: int
-    # NOTE: We're gonna need to return the filename...
+    text: str
+    heading: Optional[list[str]] = None
+    page_start: Optional[int] = None
+    page_end: Optional[int] = None
 
 
 class RagClientResponse(BaseModel):
@@ -94,7 +96,7 @@ async def get_rag_document_file(
     session: aiohttp.ClientSession,
     url: str,
     token: str,
-    chunk_id: int,
+    chunk_id: uuid.UUID,
     request_headers: fastapi.datastructures.Headers,
 ) -> fastapi.responses.StreamingResponse:
     if url.endswith("/"):
