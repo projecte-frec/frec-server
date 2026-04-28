@@ -230,6 +230,22 @@ def register_routes(app: FastAPI):
         new_title = signals[views.ChatSignals.TitleValue]
         conv = db_queries.rename_conversation(db, conversation_id, new_title)
 
+    @app.post("/delete_conversation/{conversation_id}")
+    async def delete_conversation(conversation_id: UUID):
+        async def inner():
+            db_queries.delete_conversation(db, conversation_id)
+            yield SSE.execute_script(
+                f"""
+                if (window.location.href.includes('{conversation_id}')) {{
+                    window.location.replace('/');
+                }} else {{
+                    window.location.reload();
+                }}
+            """
+            )
+
+        return DatastarResponse(inner())
+
     @app.post("/generate_conversation_title/{conversation_id}")
     async def generate_conversation_title(conversation_id: UUID):
         print("Backend got 'generate_conversation_title'")
@@ -260,15 +276,23 @@ def register_routes(app: FastAPI):
                     views.ChatSignals.CitationOverviewModalHref: f"/chat/citations/{citation_id}/document_file?cache_key={cache_key}#page={(citation.page_start or 0)+1}"
                 }
             )
+            heading_path = citation.get_heading_path()
+            if heading_path is not None and len(heading_path) > 1:
+                heading_path_element = markdown_to_html("\n".join(heading_path[1:]))
+            else:
+                heading_path_element = ""
+
             yield SSE.patch_elements(
                 selector=f"#{views.Ids.CitationOverviewModalHeading}",
                 mode=ElementPatchMode.INNER,
-                elements=f"{citation.document_filename}",
+                elements=citation.document_filename or "",
             )
             yield SSE.patch_elements(
                 selector=f"#{views.Ids.CitationOverviewModalContent}",
                 mode=ElementPatchMode.INNER,
-                elements=markdown_to_html(
+                elements=heading_path_element
+                + "\n\n"
+                + markdown_to_html(
                     filtered_content, cleanup_links=True, remove_images=True
                 ),
             )

@@ -108,6 +108,12 @@ def get_message(database: db.Database, message_id: UUID) -> m.ChatMessage:
         return session.get_one(m.ChatMessage, message_id)
 
 
+def delete_conversation(database: db.Database, conversation_id: UUID):
+    with Session(database.engine) as session:
+        conv = session.get_one(m.Conversation, conversation_id)
+        session.delete(conv)
+        session.commit()
+
 def rename_conversation(database: db.Database, conversation_id: UUID, new_name: str):
     with Session(database.engine) as session:
         conv = session.get_one(m.Conversation, conversation_id)
@@ -226,12 +232,13 @@ def add_citation_to_message(
     database: db.Database,
     message_id: uuid.UUID,
     rag_toolset_key: str,
-    rag_chunk_id: int,
+    rag_chunk_id: uuid.UUID,
     citation_literal: str,
     text_contents: str,
     document_filename: str | None,
     page_start: int | None,
     page_end: int | None,
+    heading_path: list[str] | None,
 ) -> uuid.UUID:
     with Session(database.engine) as session:
         citation = m.DocumentCitation(
@@ -243,6 +250,11 @@ def add_citation_to_message(
             document_filename=document_filename,
             page_start=page_start,
             page_end=page_end,
+            encoded_heading_path=(
+                m.DocumentCitation.encode_heading_path(heading_path)
+                if heading_path is not None
+                else None
+            ),
         )
         session.add(citation)
         session.commit()

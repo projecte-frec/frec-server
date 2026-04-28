@@ -146,13 +146,29 @@ class DocumentCitation(SQLModel, table=True):
     # The rag tool used to produce this citation
     rag_toolset_key: str
     # Reference to the chunk in the rag server's database
-    rag_chunk_id: int
+    rag_chunk_id: uuid.UUID
     # The literal text used by the citation, e.g. "[r32]"
     citation_literal: str
     text_contents: str
     document_filename: str | None
     page_start: int | None
     page_end: int | None
+    encoded_heading_path: str | None = None
+
+    def get_heading_path(self) -> list[str] | None:
+        return (
+            DocumentCitation.decode_heading_path(p)
+            if (p := self.encoded_heading_path) is not None
+            else None
+        )
+
+    @staticmethod
+    def decode_heading_path(encoded: str) -> list[str]:
+        return encoded.split("||||")
+
+    @staticmethod
+    def encode_heading_path(heading_path: list[str]) -> str:
+        return "||||".join(heading_path)
 
 
 class Conversation(SQLModel, table=True):
