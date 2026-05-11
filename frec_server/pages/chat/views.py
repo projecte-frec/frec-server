@@ -4,7 +4,7 @@ import datastar_py
 from markupsafe import Markup
 import htpy
 # fmt: off
-from htpy import article, button, details, dialog, form, h2, h3, hr, html, head, body, label, li, meta, option, p, progress, select, span, summary, table, tbody, td, textarea, thead, title, link, script, nav, div, a, strong, section, fragment, tr, ul, th
+from htpy import article, button, details, dialog, form, h2, h3, hr, html, head, body, img, label, li, meta, option, p, progress, select, span, summary, table, tbody, td, textarea, thead, title, link, script, nav, div, a, strong, section, fragment, tr, ul, th
 # fmt: on
 from datastar_py import attribute_generator as data
 from frec_server.pages.common import data_on_enter, page_with_navbar, page_wrapper
@@ -15,6 +15,7 @@ from frec_server.utils import uuid_to_html_id
 class Ids(StrEnum):
     MessagesList = "messages-list"
     MessageInputBox = "message-input-box"
+    DeleteConvModal = "DeleteConvModal"
     CitationOverviewModal = "CitationOverviewModal"
     CitationOverviewModalHeading = "CitationOverviewModalHeading"
     CitationOverviewModalContent = "CitationOverviewModalContent"
@@ -27,6 +28,8 @@ class ChatSignals(StrEnum):
     TitleValue = "title_value"
     ExternalToolOutputs = "external_tool_outputs"
     CitationOverviewModalHref = "CitationOverviewModalHref"
+    DeleteConvModalTitle = "DeleteConvModalTitle"
+    DeleteConvModalConvId = "DeleteConvModalConvId"
 
 
 class JsFunctions(StrEnum):
@@ -89,6 +92,7 @@ def chat_page(
                 action_bar(conversation.id if conversation is not None else None),
             ],
             citation_overview_modal(),
+            conversation_delete_modal(),
         ],
         navbar_center=(
             conversation_title(conversation) if conversation is not None else None
@@ -153,7 +157,9 @@ def conversation_history(
 ) -> htpy.Element:
     convs_by_date = reversed(sorted(all_conversations, key=lambda x: x.created_at))
     return div(".flex.flex-col.p-2.pl-0")[
-        conversation_button(label="✏️ Xat nou", label_signal=None, target="/chat/new"),
+        conversation_button(
+            label="✏️ Xat nou", label_signal=None, target="/chat/new", conv_id=None
+        ),
         hr(".my-2.mx-3.border-gray-200"),
         p(".text-sm.font-normal.ml-5.my-2.text-gray-500")["Els teus xats"],
         [
@@ -163,6 +169,7 @@ def conversation_history(
                     ChatSignals.TitleValue if c.id == current_conversation_id else None
                 ),
                 target=f"/chat/{c.id}",
+                conv_id=c.id,
             )
             for c in convs_by_date
         ],
@@ -170,11 +177,42 @@ def conversation_history(
 
 
 def conversation_button(
-    label: str, label_signal: ChatSignals | None, target: str
+    label: str, label_signal: ChatSignals | None, target: str, conv_id: UUID | None
 ) -> htpy.Element:
-    return div(".flex.flex-row.flex-1.px-2")[
+    on_delete_handler = f"""
+        ${ChatSignals.DeleteConvModalTitle} = '{label}';
+        ${ChatSignals.DeleteConvModalConvId} = '{conv_id}';
+        {Ids.DeleteConvModal}.showModal();
+    """
+
+    action_delete = a(data.on("click", on_delete_handler))[
+        img(
+            src="/assets/icons/trash.svg",
+            style="height:16px;",
+        ),
+        "Esborra",
+    ]
+
+    actions_menu = (
+        (
+            ul(
+                ".dropdown.menu.w-52.rounded-box.bg-base-100.shadow-sm",
+                popover=True,
+                id=f"popover-{conv_id}",
+                style=f"position-anchor:--anchor-{conv_id}",
+            )[
+                li[action_delete],
+            ],
+        )
+        if conv_id is not None
+        else None
+    )
+
+    return div(
+        ".flex.flex-row.flex-1.px-2.group.relative.btn.btn-outline.border-0.rounded-none.transition-none.flex-1.rounded-xl.shadow-none.ml-3"
+    )[
         a(
-            ".btn.btn-outline.border-0.rounded-none.transition-none.flex-1.rounded-xl.shadow-none",
+            ".py-2",
             href=target,
         )[
             p(
@@ -184,6 +222,19 @@ def conversation_button(
                 style="width:180px;",
             )[label],
         ],
+        button(
+            ".absolute.right-2.top-1/2.-translate-y-1/2.opacity-0.group-hover:opacity-100.transition-opacity.p-2",
+            # data.on("click", 'console.log("click");'),
+            popovertarget=f"popover-{conv_id}",
+            style=f"background-color:#e2e2e2; anchor-name:--anchor-{conv_id}",
+        )[
+            img(
+                ".group-hover:opacity-100.transition-opacity",
+                src="/assets/icons/gear.png",
+                style="height:16px",
+            )
+        ],
+        actions_menu,
     ]
 
 
@@ -196,16 +247,16 @@ def chat_message(
     contents = []
     if role == models.MessageRole.User:
         contents.append(
-            div(".chat.chat-end.mt-5")[div(".chat-bubble", id=html_id)["..."]]
+            div(".chat.chat-end.my-3")[div(".chat-bubble", id=html_id)["..."]]
         )
     else:
-        contents.append(div(".p-2.text-justify.mt-5", id=html_id)["..."])
+        contents.append(div(id=html_id)["..."])
 
     for tool_call in tool_calls:
         contents.append(tool_call_box(tool_call))
 
     if len(citations) > 0:
-        contents.append(h2(".text-lg.font-semibold")["Fonts consultades:"])
+        contents.append(h2(".text-lg.font-semibold.mt-2.mb-1")["Fonts consultades:"])
     for citation in citations:
         if citation.page_start == 0 and citation.page_end == 0:
             pags = ""
@@ -233,6 +284,39 @@ def chat_message(
     return div[contents]
 
 
+def conversation_delete_modal() -> htpy.Element:
+    return dialog(
+        ".modal.transition-none",
+        id=Ids.DeleteConvModal,
+    )[
+        div(".modal-box")[
+            h3(".text-lg.font-bold")["Esborrar Conversa"],
+            div(".py-4")[
+                "La conversa ",
+                span(data.text(f"${ChatSignals.DeleteConvModalTitle}")),
+                " s'esborrarà. Vols continuar?",
+            ],
+            div(".flex.flex-row.gap-2")[
+                button(
+                    ".btn.flex-1.btn-warning",
+                    data.on(
+                        "click",
+                        f"@post('/delete_conversation/'+${ChatSignals.DeleteConvModalConvId})",
+                    ),
+                )["Esborra-la"],
+                button(
+                    ".btn.flex-1",
+                    data.on(
+                        "click",
+                        f"{Ids.DeleteConvModal}.close();",
+                    ),
+                )["No l'esborris"],
+            ],
+        ],
+        form(".modal-backdrop", method="dialog")[button["close"]],
+    ]
+
+
 def citation_overview_modal() -> htpy.Element:
     return dialog(
         ".modal.transition-none",
@@ -242,7 +326,7 @@ def citation_overview_modal() -> htpy.Element:
         div(".modal-box.w-11/12.max-w-5xl.flex.flex-col", style="height: 90vh;")[
             h2(".text-lg.font-bold", id=Ids.CitationOverviewModalHeading)["..."],
             div(
-                ".p-2.py-4.m-2.overflow-auto.border-base-300.border.flex-1",
+                ".px-2.m-2.overflow-auto.border-base-300.border.flex-1",
                 style="background-color: #fefdff; focus:border-transparent;",
             )[
                 div(".prose", id=Ids.CitationOverviewModalContent, style="")["..."],
@@ -303,7 +387,7 @@ def tool_call_box(tool_call: models.ToolCall) -> htpy.Element:
         ]
 
     return div(
-        ".collapse.bg-purple-100.border-base-300.border.mt-5",
+        ".collapse.bg-purple-100.border-base-300.border.my-5",
         id=uuid_to_html_id(tool_call.id),
     )[
         htpy.input(type="checkbox"),
@@ -369,7 +453,7 @@ def action_bar(conversation_id: UUID | None) -> htpy.Element:
                 ),
                 id=Ids.MessageInputBox,
                 rows="1",
-                style="resize:none; overflow-y: hidden; line-height: 24px; max-height: 120px",
+                style="resize:none; overflow-y: hidden; line-height: 36px; max-height: 120px",
                 # type="text",
                 placeholder="Escriu un missatge...",
                 autocomplete="off",
