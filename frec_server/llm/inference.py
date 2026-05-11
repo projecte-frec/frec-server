@@ -149,8 +149,11 @@ class OpenAiCompatibleInference(LlmInference):
                         except json.JSONDecodeError:
                             continue
 
+                        choices = data.get("choices", [{}])
+                        if len(choices) == 0:
+                            choices = [{}]
                         delta_content = self._extract_content(
-                            data.get("choices", [{}])[0].get("delta", {}).get("content")
+                            choices[0].get("delta", {}).get("content")
                         )
                         if delta_content:
                             yield delta_content
