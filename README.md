@@ -115,7 +115,7 @@ Prémer sobre el missatge informatiu mostrarà el procés que segueix l'eina i l
 # Instruccions de desenvolupament
 ## Pas 0 - Configuració inicial
 ### Crear un entorn virtual
-Permetrà l'accés a l'entorn que heu aixecat dins el contenidor de docker a la vostra IDE.
+Permetrà les funcions de validació de tipus del vostre IDE de desenvolupament:
 > [!NOTE]
 > Aquest pas només caldrà executar-lo al moment de la inicialització.
 
@@ -139,7 +139,7 @@ Cada servidor es defineix a tres punts diferents:
 
 1. Té l'script corresponent a la carpeta `mcp_servers/`. Per exemple, `mcp_servers/viquipedia_mcp.py`.
 
-    Aquí és on es determinarà el port mcp per afegir el servidor al panell de control de FREC.
+    Aquí és on es determinarà el port que després cal afegir a l'endpoint del fitxer de configuració. El servidor al panell de control de FREC.
 
     Per desenvolupar el vostre servidor, trobareu la plantilla `template_mcp` dins la carpeta `mcp_servers/`.
 

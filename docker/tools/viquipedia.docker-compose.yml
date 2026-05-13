@@ -1,0 +1,13 @@
+services:
+  mcp_viquipedia:
+    image: frec_server
+    build:
+      context: ..
+      dockerfile: ./docker/frec_server/Dockerfile
+    volumes:
+      - type: bind
+        source: ..
+        target: /app
+    command: ["python", "mcp_servers/viquipedia_mcp.py"]
+    networks:
+      - frec_deploy_network

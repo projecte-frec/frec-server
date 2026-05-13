@@ -66,4 +66,4 @@ if __name__ == "__main__":
     if len(sys.argv) >= 2 and sys.argv[1] == "--test":
         print(get_word_definition.fn("bola"))
     else:
-        mcp.run(transport="streamable-http", host="0.0.0.0", port=8033, path="/mcp")
+        mcp.run(transport="streamable-http", host="0.0.0.0", port=8000, path="/mcp")

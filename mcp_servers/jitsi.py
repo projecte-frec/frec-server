@@ -46,4 +46,4 @@ def obtain_meeting_qr(url: str) -> list[dict]:
     }]
 
 if __name__ == "__main__":
-    mcp.run(transport="http", host="0.0.0.0", port=8017)
+    mcp.run(transport="http", host="0.0.0.0", port=8000)

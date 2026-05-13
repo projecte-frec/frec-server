@@ -161,6 +161,6 @@ if __name__ == "__main__":
             exit(f"Testing Usage:\n\tpython {__file__} --test [word_to_search]")
         print(result)
     elif len(sys.argv) < 2:
-        mcp.run(transport="streamable-http", host="0.0.0.0", port=8011, path="/mcp")
+        mcp.run(transport="streamable-http", host="0.0.0.0", port=8000, path="/mcp")
     else:
         exit(f"Usage:\n\tpython {__file__}")

@@ -245,4 +245,4 @@ def corrector_check(language: str, text: str) -> dict:
 # ------------------------------------
 if __name__ == "__main__":
     # Initialize and run the server
-    mcp.run(transport="http", host="0.0.0.0", port=8007)
+    mcp.run(transport="http", host="0.0.0.0", port=8000)
