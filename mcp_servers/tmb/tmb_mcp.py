@@ -242,4 +242,4 @@ if __name__ == "__main__":
         stop = str(input("Fins on? "))
         print(json.dumps(get_route.fn(start,stop)))
     else:
-        mcp.run(transport="streamable-http", host="0.0.0.0", port=8008, path="/mcp")
+        mcp.run(transport="streamable-http", host="0.0.0.0", port=8000, path="/mcp")

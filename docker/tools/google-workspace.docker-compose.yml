@@ -1,0 +1,13 @@
+services:
+  mcp_google_workspace:
+    image: mcp_google_workspace
+    build:
+      context: ..
+      dockerfile: ./docker/mcp_google_workspace/Dockerfile
+    volumes:
+      - type: bind
+        source: ../mcp_servers/google/mcp-credentials
+        target: /root/.credentials
+    command: ["workspace-mcp", "--transport", "streamable-http"]
+    networks:
+      - frec_deploy_network

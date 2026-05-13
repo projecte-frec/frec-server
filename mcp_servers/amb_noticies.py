@@ -67,4 +67,4 @@ def amb_news_search(term: str | None = None, year: int | None = None) -> list[di
 
 if __name__ == "__main__":
     # Initialize and run the server
-    mcp.run(transport='http', host="0.0.0.0", port=8015)
+    mcp.run(transport='http', host="0.0.0.0", port=8000)

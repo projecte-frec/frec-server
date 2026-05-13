@@ -1,14 +1,12 @@
 import os
 from pathlib import Path
 import sys
-from typing import Annotated, Literal, Optional, Union
+from typing import Annotated, Literal, Optional
 from dotenv import load_dotenv
 from jinja2 import Environment, StrictUndefined
 import pydantic
 from pydantic import BaseModel
 import yaml
-
-from frec_server.persistence import models
 
 class PropmptConfig(BaseModel):
     """Various bits of the prompt can be customized by specifying these sections in the

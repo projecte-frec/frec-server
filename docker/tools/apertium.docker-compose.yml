@@ -1,0 +1,13 @@
+services:
+  mcp_apertium:
+    image: frec_server_apertium
+    build:
+      context: ..
+      dockerfile: ./docker/frec_server_apertium/Dockerfile
+    volumes:
+      - type: bind
+        source: ..
+        target: /app
+    command: ["python", "mcp_servers/apertium/apertium.py"]
+    networks:
+      - frec_deploy_network

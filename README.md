@@ -115,7 +115,7 @@ Prémer sobre el missatge informatiu mostrarà el procés que segueix l'eina i l
 # Instruccions de desenvolupament
 ## Pas 0 - Configuració inicial
 ### Crear un entorn virtual
-Permetrà l'accés a l'entorn que heu aixecat dins el contenidor de docker a la vostra IDE.
+Permetrà les funcions de validació de tipus del vostre IDE de desenvolupament:
 > [!NOTE]
 > Aquest pas només caldrà executar-lo al moment de la inicialització.
 
@@ -137,28 +137,49 @@ pip install -r requirements.txt
 ## Afegir servidors MCP
 Cada servidor es defineix a tres punts diferents:
 
-1. Té l'script corresponent a la carpeta `mcp_servers/`. Per exemple, `mcp_servers/viquipedia_mcp.py`.
+1. S'ha de crear l'script o projecte python corresponent a la carpeta `mcp_servers/`. Per
+   exemple, `mcp_servers/viquipedia_mcp.py`.
 
-    Aquí és on es determinarà el port mcp per afegir el servidor al panell de control de FREC.
+   Aquí és on es determinarà el port que després cal afegir a l'endpoint del fitxer de
+   configuració. Es recomana fer servir un port fàcil de recordar, com el `8000`. Diferents
+   eines poden compartir el mateix port ja que es gestionaran dins la xarxa docker.
 
-    Per desenvolupar el vostre servidor, trobareu la plantilla `template_mcp` dins la carpeta `mcp_servers/`.
+   Per desenvolupar el vostre servidor, trobareu la plantilla `template_mcp` dins la
+   carpeta `mcp_servers/`.
 
-2. Es configura dins del fitxer `frec-config.yaml`. Per exemple:
+2. També cal crear un fitxer docker-compose que configura el desplegament del servei dins
+   el directori `docker/tools`. Podeu partir del fitxer
+   `docker/tools/TEMPLATE.docker-compose.yml` com a punt de partida i crear el vostre
+   `docker/tools/lamevaintegracio.docker-compose.yml`. 
+
+3. Finalment, caldrà afegir una entrada al fitxer de configuració, ja sigui
+   `frec-config.yml` si és una integració per defecte, o el fitxer de configuració
+   personal si es tracta d'una integració que no forma part del conjunt d'integracions
+   estàndard de FREC. L'entrada ha d'incloure informació sobre l'integració. Per exemple:
+
    ```yaml
-    viquipedia:
-    name: "Viquipedia"
-    kind: mcp
-    endpoint: http://mcp_viquipedia:8011/mcp```
-   
-3. Es declara el seu servei a `docker/docker-compose.yml`
+   viquipedia:
+     name: "Viquipedia"
+     kind: mcp
+     endpoint: http://viquipedia:8000/mcp # Cal usar el nom del servei dins el fitxer docker-compose
+     ```
+
+   A més, és molt recomanable afegir un camp `custom_instructions` amb informació sobre
+   l'ús de l'eina. Aquesta informació estarà disponible per l'agent de FREC.
+  
 
 Cal tenir en compte si el nou MCP serà autohostatjat o extern. Per als serveis
 autohostatjats s'utilitzarà un `endpoint` que apunti dins la xarxa docker, com
 `http://mcp_viquipedia:8011/mcp`. Per MCP externs, s'haurà d'introduir una URL vàlida que
 apunti al vostre servidor.
 
-> [!NOTE]
-> Per motius de seguretat, FREC no permet utilitzar el protocol MCP via el transport *stdio*, només via *streamable-http*. Existeixen eines com [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy) que permeten exposar servidors mcp *stdio* a través d'una connexió HTTP.
+> [!NOTE] Per motius de seguretat, FREC no permet utilitzar el protocol MCP via el
+> transport *stdio*, només via *streamable-http*. Existeixen eines com
+> [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy) que permeten exposar servidors mcp
+> *stdio* a través d'una connexió HTTP. Podeu consultar els fitxers de l'MCP `filesystem`
+> que integra un [servidor MCP de gestió de
+> fitxers](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) amb
+> transport stdio
 
 ## Testejar servidors MCP
 ### En local

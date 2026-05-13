@@ -1,0 +1,26 @@
+services:
+  # MCP Servers
+  mcp_filesystem:
+    image: external_mcp_image
+    build:
+      context: ..
+      dockerfile: ./docker/external_mcp/Dockerfile
+    command:
+      [
+        "mcp-proxy",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000",
+        "--",
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/app/data",
+      ]
+    volumes:
+      - type: bind
+        source: ./mcp_filesystem_data
+        target: /app/data
+    networks:
+      - frec_deploy_network

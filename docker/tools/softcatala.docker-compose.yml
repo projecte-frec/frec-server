@@ -1,0 +1,13 @@
+services:
+  mcp_softcatala:
+    image: frec_server_java
+    build:
+      context: ..
+      dockerfile: ./docker/frec_server_java/Dockerfile
+    volumes:
+      - type: bind
+        source: ..
+        target: /app
+    command: ["python", "mcp_servers/softcatala/softcatala.py"]
+    networks:
+      - frec_deploy_network
